@@ -1,8 +1,8 @@
 # ----------------------------------
 # PixARK Dockerfile
-# Environment: Ubuntu:16.04 + Wine
+# Environment: Ubuntu:18.04 + Wine
 # ----------------------------------
-FROM        ubuntu:16.04
+FROM        ubuntu:18.04
 
 MAINTAINER  mingking, <mingking@rootx.pw>
 
