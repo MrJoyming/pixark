@@ -18,7 +18,7 @@ EXPOSE      27017/udp
 RUN         dpkg --add-architecture i386 && \
             apt update && \
             apt upgrade -y && \
-            apt install -y wget software-properties-common apt-transport-https lib32gcc1 steamcmd  && \
+            apt install -y wget software-properties-common apt-transport-https libgcc1 steamcmd  && \
             wget https://dl.winehq.org/wine-builds/Release.key && \
             apt-key add Release.key && \
             apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/' -y && \
