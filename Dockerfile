@@ -8,21 +8,17 @@ MAINTAINER  mingking, <mingking@rootx.pw>
 
 # Install Dependencies
 
-EXPOSE 27015/tcp
-EXPOSE 27015/udp
-EXPOSE 27016/tcp
-EXPOSE 27016/udp
-EXPOSE 27017/tcp
-EXPOSE 27017/udp
+EXPOSE      27015/tcp
+EXPOSE      27015/udp
+EXPOSE      27016/tcp
+EXPOSE      27016/udp
+EXPOSE      27017/tcp
+EXPOSE      27017/udp
 
-RUN         add-apt-repository multiverse \
-            dpkg --add-architecture i386 \
-            apt update \
-            apt install lib32gcc1 steamcmd \
-            dpkg --add-architecture i386 && \
+RUN         dpkg --add-architecture i386 && \
             apt update && \
             apt upgrade -y && \
-            apt install -y wget software-properties-common apt-transport-https lib32gcc1  && \
+            apt install -y wget software-properties-common apt-transport-https lib32gcc1 steamcmd  && \
             wget https://dl.winehq.org/wine-builds/Release.key && \
             apt-key add Release.key && \
             apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/' -y && \
