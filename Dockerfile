@@ -17,13 +17,10 @@ EXPOSE      27017/udp
 
 RUN         dpkg --add-architecture i386 && \
             apt update && \
-            apt upgrade -y && \
-            apt install -y wget software-properties-common apt-transport-https libgcc1 steamcmd  && \
-            wget https://dl.winehq.org/wine-builds/Release.key && \
-            apt-key add Release.key && \
-            apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/' -y && \
-            apt update && \
-            apt install -y winehq-stable && \
+            apt install -y wget software-properties-common apt-transport-https libgcc1 steamcmd && \
+            wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - && \
+            add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' -y && \
+            apt install --install-recommends winehq-stable -y && \
             apt clean && \
             useradd -d /home/container -m container && \
             cd /home/container
